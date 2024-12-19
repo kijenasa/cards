@@ -1,7 +1,8 @@
 mod deck;
 
 fn main() {
-    let deck = deck::Deck::new(true);
+    let mut deck = deck::Deck::new(true);
+    deck.shuffle();
     for card in deck.cards {
         card.print();
     }

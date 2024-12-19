@@ -1,4 +1,5 @@
 use strum::IntoEnumIterator;
+use rand::seq::SliceRandom;
 use card::Card;
 use card::Suit;
 use card::Rank;
@@ -29,4 +30,11 @@ impl Deck {
         }
         return deck;
     }
+
+    pub fn shuffle(&mut self) {
+        let mut rand = rand::thread_rng();
+        self.cards.shuffle(&mut rand);
+    }
+
+    
 }
