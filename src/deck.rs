@@ -31,9 +31,18 @@ impl Deck {
         return deck;
     }
 
-    pub fn print(&self) {
-        for card in &self.cards {
-            card.print();
+    pub fn empty() -> Deck {
+        return Deck {cards: Vec::new()};
+    }
+
+    pub fn deal(&mut self, decks: &mut Vec<&mut Deck>, count: u32) {
+        for _ in 1..=count {
+            for deck in decks.iter_mut() {
+                deck.cards.push(match self.cards.pop() {
+                    Some(s) => s,
+                    None    => todo!("ran out of cards"),
+                });
+            }
         }
     }
 
@@ -42,5 +51,9 @@ impl Deck {
         self.cards.shuffle(&mut rand);
     }
 
-    
+    pub fn print(&self) {
+        for card in &self.cards {
+            card.print();
+        }
+    }
 }
