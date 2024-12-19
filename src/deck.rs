@@ -31,6 +31,12 @@ impl Deck {
         return deck;
     }
 
+    pub fn print(&self) {
+        for card in self.cards {
+            card.print();
+        }
+    }
+
     pub fn shuffle(&mut self) {
         let mut rand = rand::thread_rng();
         self.cards.shuffle(&mut rand);
