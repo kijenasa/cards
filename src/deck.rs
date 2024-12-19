@@ -32,7 +32,7 @@ impl Deck {
     }
 
     pub fn print(&self) {
-        for card in self.cards {
+        for card in &self.cards {
             card.print();
         }
     }
