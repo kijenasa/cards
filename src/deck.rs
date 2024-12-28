@@ -1,13 +1,11 @@
 use strum::IntoEnumIterator;
 use rand::seq::SliceRandom;
-use card::Card;
-use card::Suit;
-use card::Rank;
-
-mod card;
+use crate::card::Card;
+use crate::card::Suit;
+use crate::card::Rank;
 
 pub struct Deck {
-    pub cards: Vec<card::Card>,
+    pub cards: Vec<Card>,
 }
 
 impl Deck {
